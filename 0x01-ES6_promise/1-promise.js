@@ -5,7 +5,7 @@ export default function getFullResponseFromAPI(success) {
     if (success) {
       resolve({
         status: 200,
-        body: 'Success'
+        body: 'Success',
       });
     } else {
       // If success is false, reject the promise with an error object with the message The fake API is not working currently
