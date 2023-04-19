@@ -1,16 +1,21 @@
-export default function getFullResponseFromAPI(success) {
-  // Create a promise
+function getFullResponseFromAPI(success) {
+  // Check the argument
+  if (typeof success !== 'boolean') {
+    throw new Error('The argument must be a boolean');
+  }
+
+  // Create the promise
   const promise = new Promise((resolve, reject) => {
-    // If success is true, resolve the promise with an object with 2 attributes: status: 200, body: 'Success'
     if (success) {
+      // Resolve the promise with the success object
       resolve({
         status: 200,
         body: 'Success',
       });
     } else {
-      // If success is false, reject the promise with an error object with the message The fake API is not working currently
+      // Reject the promise with the error object
       reject({
-        message: 'The fake API is not working currently'
+        message: 'The fake API is not working currently',
       });
     }
   });
