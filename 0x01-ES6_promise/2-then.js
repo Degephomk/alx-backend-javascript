@@ -1,4 +1,4 @@
-function handleResponseFromAPI(promise) {
+export default function handleResponseFromAPI(promise) {
   // Add a handler to the promise that logs the success message
   promise.then(() => {
     console.log('Got a response from the API');
