@@ -1,43 +1,49 @@
-class HolbertonCourse:
+export default class HolbertonCourse {
+  constructor(name, length, students) {
+    // Verify attribute types during obj creation
+    if (Object.getPrototypeOf(name) !== String.prototype) throw TypeError('name olly string');
+    if (Object.getPrototypeOf(length) !== Number.prototype) throw TypeError('length only number');
+    if (Object.getPrototypeOf(students) !== Array.prototype) throw TypeError('students must be an array of strings');
+    students.forEach((student) => {
+      if (Object.getPrototypeOf(student) !== String.prototype) throw TypeError('students must be an array of strings');
+    });
 
-  def __init__(self, name: str, length: int, students: list) -> None:
-    if not isinstance(name, str):
-      raise TypeError("name must be a string")
-    if not isinstance(length, int):
-      raise TypeError("length must be an integer")
-    if not isinstance(students, list):
-      raise TypeError("students must be a list")
+    // Create objs
+    this._name = name;
+    this._length = length;
+    this._students = students;
+  }
 
-    self._name = name
-    self._length = length
-    self._students = students
+  // Setters
+  set name(newName) {
+    if (Object.getPrototypeOf(newName) !== String.prototype) throw TypeError('name must be a string');
+    this._name = newName;
+  }
 
-  @property
-  def name(self) -> str:
-    return self._name
+  set length(newLen) {
+    if (Object.getPrototypeOf(newLen) !== Number.prototype) throw TypeError('length must be a number');
+    this._length = newLen;
+  }
 
-  @name.setter
-  def name(self, name: str) -> None:
-    if not isinstance(name, str):
-      raise TypeError("name must be a string")
-    self._name = name
+  set students(newStudents) {
+    if (Object.getPrototypeOf(newStudents) !== Array.prototype) throw TypeError('students must be an array');
+    newStudents.forEach((student) => {
+      if (Object.getPrototypeOf(student) !== String.prototype) throw TypeError('students must be an array of strings');
+    });
+    this._students = newStudents;
+  }
 
-  @property
-  def length(self) -> int:
-    return self._length
+  // Getters
 
-  @length.setter
-  def length(self, length: int) -> None:
-    if not isinstance(length, int):
-      raise TypeError("length must be an integer")
-    self._length = length
+  get name() {
+    return this._name;
+  }
 
-  @property
-  def students(self) -> list:
-    return self._students
+  get length() {
+    return this._length;
+  }
 
-  @students.setter
-  def students(self, students: list) -> None:
-    if not isinstance(students, list):
-      raise TypeError("students must be a list")
-    self._students = students
+  get students() {
+    return this._students;
+  }
+}
