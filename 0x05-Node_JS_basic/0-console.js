@@ -1,8 +1,15 @@
 /**
- * STDOUT a message to the console.
+ * create a function named displayMessage.
  * @param {string} message - The message to log.
  * @returns {void}
  */
- 
- const displayMessage = (message) => console.log(message);
- module.exports = displayMessage;
+// Arrow function
+const displayMessage = (message) => console.log(message);
+
+/**
+ * prints in STDOUT the string argument.
+ * @module displayMessage
+ * @function
+ */
+// Default module export.
+module.exports = displayMessage;
