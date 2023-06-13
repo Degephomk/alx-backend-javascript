@@ -1,22 +1,13 @@
-// 1-stdin.js
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-const readline = require('readline');
+process.stdin.on('readable', () => {
+  const deg = process.stdin.read();
 
-// Create an interface for reading input from the command line
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+  if (deg) {
+    process.stdout.write(`Your name is: ${deg}`);
+  }
 });
 
-// Display initial message
-console.log('Welcome to Holberton School, what is your name?');
-
-// Read user input
-rl.on('line', (name) => {
-  // Display the name
-  console.log(`Your name is: ${name}`);
-  
-  // Close the program
-  console.log('\nThis important software is now closing');
-  rl.close();
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
